@@ -1,0 +1,8 @@
+name: MysticalShop
+author: l3st4t
+api-version: 1.20
+main: com.mysticalkingdoms.mysticalshop.MysticalShop
+version: ${project.version}
+softdepend:
+  - Vault
+  - UltraEconomy

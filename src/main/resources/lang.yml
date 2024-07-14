@@ -1,0 +1,6 @@
+config-version: 1
+
+messages:
+  notEnoughBalance: '<red>You do not have enough balance to buy this.'
+  invalidShop: '<red>Invalid shop.'
+  shopRefreshed: '<green>Shop refreshed successfully.'

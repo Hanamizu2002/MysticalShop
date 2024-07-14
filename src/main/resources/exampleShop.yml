@@ -1,0 +1,56 @@
+settings:
+  key: Example # This is the key used to refer to this shop. Must be unique.
+  command: coinshop # What command should the shop use?
+  economy: VAULT # What economy should this shop use?
+  refreshTime: 180 # How often should this shop refresh?
+  persistent: false # Should the timer and items persist after restarts?
+  unique: true # Should the items be unique or not?
+
+  inventory:
+    title: 'Coin Shop' # Inventory title for this shop.
+    rows: 3 # How many rows should the shop have? From 1 to 6.
+    shopSlots: # Where should we place the items?
+      - 13
+
+items:
+  '0':
+    available-item: # This item is used when the item is available for purchase.
+      material: DIAMOND
+      name: '<green>Diamond'
+      lore:
+        - '<gray>Costs $10'
+    bought-permission: bought.diamond # This permission is used to determine if the player has bought the item.
+    bought-item: # This item is used when the player has the permission above.
+      material: DIAMOND
+      name: '<green>Diamond'
+      lore:
+        - '<gray>Already bought!'
+    required-permission: buy.diamond # This is the required permission to buy this item.
+    no-permission-item: # This is the item used when the player doesn't have permission.
+      material: DIAMOND
+      name: '<green>Diamond'
+      lore:
+        - '<gray>No permission'
+    commands: # Commands to execute when bought.
+      - 'give %player% diamond 1'
+    price: 10 # Price of the item.
+    weight: 1.0 # The weight of the item. Higher weight = higher chance.
+  '1':
+    available-item:
+      material: IRON_INGOT
+      name: '<green>Iron Ingot'
+      lore:
+        - '<gray>Costs $5'
+    commands:
+      - 'give %player% iron_ingot 1'
+    price: 5
+    weight: 2.5
+
+filler-items: # These items are filler and not part of the shop.
+  '0':
+    slots:
+      - 4
+    material: CLOCK
+    name: <green>%timeRemaining% # The only placeholder available is %timeRemaining%
+    commands:
+      - 'say Hello!'
