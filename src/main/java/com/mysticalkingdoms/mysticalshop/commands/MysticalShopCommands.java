@@ -27,6 +27,11 @@ public class MysticalShopCommands {
     @Subcommand("open")
     @CommandPermission("mysticalshop.open")
     public void onOpen(Player player, Shop shop) {
+        if (!player.hasPermission("mysticalshop.shop." + shop.getSettings().key().toLowerCase())) {
+            plugin.getLocaleManager().getMessage("messages.noShopPermission").sendMessage(player);
+            return;
+        }
+
         new ShopInventory(plugin, shop, player).open();
     }
 }

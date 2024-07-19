@@ -26,8 +26,8 @@ public class ShopManager {
     private final YamlDocument storage;
     public ShopManager(MysticalShop plugin) {
         this.plugin = plugin;
-        reloadItems();
         this.storage = plugin.createConfig(new File(plugin.getDataFolder(), "storage.yml"));
+        reloadItems();
 
         Bukkit.getScheduler().runTaskTimer(plugin, () -> activeShops.values().forEach(Shop::tick), 20L, 20L);
     }
@@ -73,6 +73,11 @@ public class ShopManager {
                 plugin.getCommandManager().register(Orphans.path(settings.command()).handler(new OrphanCommand() {
                     @DefaultFor("~")
                     public void onShop(Player player) {
+                        if (!player.hasPermission("mysticalshop.shop." + settings.key().toLowerCase())) {
+                            plugin.getLocaleManager().getMessage("messages.noShopPermission").sendMessage(player);
+                            return;
+                        }
+
                         new ShopInventory(plugin, shop, player).open();
                     }
                 }));

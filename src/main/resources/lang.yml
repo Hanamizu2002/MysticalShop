@@ -4,3 +4,4 @@ messages:
   notEnoughBalance: '<red>You do not have enough balance to buy this.'
   invalidShop: '<red>Invalid shop.'
   shopRefreshed: '<green>Shop refreshed successfully.'
+  noShopPermission: '<red>No permission to use this shop.'

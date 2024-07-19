@@ -6,7 +6,7 @@
 
     <groupId>com.mysticalkingdoms</groupId>
     <artifactId>MysticalShop</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -62,22 +62,22 @@
         <dependency>
             <groupId>net.kyori</groupId>
             <artifactId>adventure-api</artifactId>
-            <version>4.15.0</version>
+            <version>4.17.0</version>
         </dependency>
         <dependency>
             <groupId>net.kyori</groupId>
             <artifactId>adventure-platform-bukkit</artifactId>
-            <version>4.3.2</version>
+            <version>4.3.3</version>
         </dependency>
         <dependency>
             <groupId>net.kyori</groupId>
             <artifactId>adventure-text-minimessage</artifactId>
-            <version>4.15.0</version>
+            <version>4.17.0</version>
         </dependency>
         <dependency>
             <groupId>dev.triumphteam</groupId>
             <artifactId>triumph-gui</artifactId>
-            <version>3.1.7</version>
+            <version>3.1.10</version>
         </dependency>
         <dependency>
             <groupId>com.github.Revxrsal.Lamp</groupId>
