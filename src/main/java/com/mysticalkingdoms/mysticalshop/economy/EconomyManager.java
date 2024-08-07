@@ -1,6 +1,7 @@
 package com.mysticalkingdoms.mysticalshop.economy;
 
 import com.mysticalkingdoms.mysticalshop.MysticalShop;
+import com.mysticalkingdoms.mysticalshop.economy.impl.PlayerPointsEconomy;
 import com.mysticalkingdoms.mysticalshop.economy.impl.UltraEconomyEconomy;
 import com.mysticalkingdoms.mysticalshop.economy.impl.VaultEconomy;
 import org.bukkit.Bukkit;
@@ -22,6 +23,10 @@ public class EconomyManager {
 
         if (Bukkit.getPluginManager().isPluginEnabled("UltraEconomy")) {
             UltraEconomyEconomy.registerCurrencies(this);
+        }
+
+        if (Bukkit.getPluginManager().isPluginEnabled("PlayerPoints")) {
+            registerEconomyManager("PLAYERPOINTS", new PlayerPointsEconomy());
         }
     }
 

@@ -23,11 +23,6 @@ public class VaultEconomy implements IEconomy {
     }
 
     @Override
-    public void depositPlayer(Player player, double amount) {
-        economy.depositPlayer(player, amount);
-    }
-
-    @Override
     public void withdrawPlayer(Player player, double amount) {
         economy.withdrawPlayer(player, amount);
     }

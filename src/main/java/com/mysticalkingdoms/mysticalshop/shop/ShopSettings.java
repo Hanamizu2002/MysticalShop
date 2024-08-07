@@ -48,10 +48,6 @@ public record ShopSettings(YamlDocument config,
         }
 
         int refreshTime = config.getInt("settings.refreshTime");
-        if (refreshTime <= 0) {
-            plugin.getLogger().warning("No valid refresh time found for shop " + file.getName());
-            return null;
-        }
 
         Component title = MiniMessage.miniMessage().deserialize(config.getString("settings.inventory.title"));
         int rows = config.getInt("settings.inventory.rows");

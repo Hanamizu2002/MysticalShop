@@ -6,3 +6,4 @@ version: ${project.version}
 softdepend:
   - Vault
   - UltraEconomy
+  - PlayerPoints

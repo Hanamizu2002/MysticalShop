@@ -59,6 +59,10 @@ public class Shop {
     }
 
     public void tick() {
+        if (settings.refreshTime() <= 0) {
+            return;
+        }
+
         timeUntilRefresh--;
 
         if (timeUntilRefresh <= 0) {

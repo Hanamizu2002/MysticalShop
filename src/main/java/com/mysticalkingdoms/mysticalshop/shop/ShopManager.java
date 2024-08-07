@@ -91,10 +91,11 @@ public class ShopManager {
     }
 
     public void unload() {
-        activeShops.values().forEach(shop -> {
+        activeShops.values().stream().filter(shop -> shop.getSettings().persistent()).forEach(shop -> {
             storage.set("storage." + shop.getSettings().key() + ".timeRemaining", shop.getTimeUntilRefresh());
             storage.set("storage." + shop.getSettings().key() + ".items", shop.getShopItems().entrySet().stream().map(entry -> entry.getKey() + ";" + entry.getValue().id()).toList());
         });
+
         try {
             storage.save();
         } catch (IOException e) {

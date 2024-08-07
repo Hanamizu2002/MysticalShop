@@ -17,13 +17,6 @@ public class UltraEconomyEconomy implements IEconomy {
     }
 
     @Override
-    public void depositPlayer(Player player, double amount) {
-        UltraEconomy.getAPI().getAccounts().uuid(player.getUniqueId()).ifPresent(account -> {
-            account.addBalance(currency, amount);
-        });
-    }
-
-    @Override
     public void withdrawPlayer(Player player, double amount) {
         UltraEconomy.getAPI().getAccounts().uuid(player.getUniqueId()).ifPresent(account -> {
             account.removeBalance(currency, amount);

@@ -6,7 +6,7 @@
 
     <groupId>com.mysticalkingdoms</groupId>
     <artifactId>MysticalShop</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -30,6 +30,10 @@
         <repository>
             <id>techscode</id>
             <url>https://repo.techscode.com/repository/techscode-apis/</url>
+        </repository>
+        <repository>
+            <id>rosewood-repo</id>
+            <url>https://repo.rosewooddev.io/repository/public/</url>
         </repository>
     </repositories>
 
@@ -56,6 +60,12 @@
             <groupId>me.TechsCode</groupId>
             <artifactId>UltraEconomyAPI</artifactId>
             <version>1.0.0_build-7</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.black_ixx</groupId>
+            <artifactId>playerpoints</artifactId>
+            <version>3.2.7</version>
             <scope>provided</scope>
         </dependency>
 
