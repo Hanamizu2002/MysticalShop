@@ -1,7 +1,6 @@
 package com.mysticalkingdoms.mysticalshop.shop;
 
 import com.mysticalkingdoms.mysticalshop.shop.items.ShopItem;
-import dev.dejvokep.boostedyaml.YamlDocument;
 import dev.dejvokep.boostedyaml.block.implementation.Section;
 
 import java.util.Collections;
