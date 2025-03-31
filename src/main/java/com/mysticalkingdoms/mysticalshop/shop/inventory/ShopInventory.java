@@ -127,13 +127,11 @@ public class ShopInventory {
         Map<String, String> placeholders = new HashMap<>();
         placeholders.put("%timeRemaining%", FormatUtils.formatTime(shop.getTimeUntilRefresh()));
 
-        shop.getSettings().fillerItems().forEach((slot, section) -> {
-            gui.setItem(slot, ItemBuilder.from(ItemFactory.createItem(section, placeholders)).asGuiItem(event -> {
-                for (String command : section.getStringList("commands")) {
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("%player%", player.getName()));
-                }
-            }));
-        });
+        shop.getSettings().fillerItems().forEach((slot, section) -> gui.setItem(slot, ItemBuilder.from(ItemFactory.createItem(section, placeholders)).asGuiItem(event -> {
+            for (String command : section.getStringList("commands")) {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("%player%", player.getName()));
+            }
+        })));
 
         gui.update();
     }
