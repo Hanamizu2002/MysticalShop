@@ -5,9 +5,7 @@ import dev.dejvokep.boostedyaml.YamlDocument;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class LocaleManager {
 
@@ -16,7 +14,7 @@ public class LocaleManager {
 
     public LocaleManager(MysticalShop plugin) {
         this.plugin = plugin;
-        this.langFile = plugin.createUpdatingConfig(new File(plugin.getDataFolder(), "lang.yml"));
+        this.langFile = plugin.createUpdatingConfig(new File(plugin.getDataFolder(), "config.yml"));
     }
 
     public Message getMessage(String path) {

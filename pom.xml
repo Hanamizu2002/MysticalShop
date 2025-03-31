@@ -6,7 +6,7 @@
 
     <groupId>com.mysticalkingdoms</groupId>
     <artifactId>MysticalShop</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -54,12 +54,6 @@
             <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>me.TechsCode</groupId>
-            <artifactId>UltraEconomyAPI</artifactId>
-            <version>1.0.0_build-7</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

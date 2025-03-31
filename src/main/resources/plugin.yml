@@ -1,10 +1,7 @@
 name: MysticalShop
-author: l3st4t
+author: l3st4t, Hanamizu
 api-version: 1.20
 main: com.mysticalkingdoms.mysticalshop.MysticalShop
 version: ${project.version}
-softdepend:
-  - Vault
-  - UltraEconomy
+depend:
   - PlayerPoints
-  - RedisEconomy

@@ -1,0 +1,12 @@
+config-version: 2
+
+messages:
+  notEnoughBalance: '<red>You do not have enough balance to buy this.'
+  buySuccess: '<green>You have bought success!'
+  invalidShop: '<red>Invalid shop.'
+  shopRefreshed: '<green>Shop refreshed successfully.'
+  noShopPermission: '<red>No permission to use this shop.'
+
+webhook:
+  url: "https://your-webhook-url.com"
+  bearerToken: "your_token_here"

@@ -27,6 +27,7 @@ public class ShopInventory {
     private final Gui gui;
     // this is used to keep track of the rotation the player is viewing.
     private int shopRotation;
+
     public ShopInventory(MysticalShop plugin, Shop shop, Player player) {
         this.plugin = plugin;
         this.shop = shop;
@@ -103,21 +104,28 @@ public class ShopInventory {
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json");
+                    String bearerToken = plugin.getConfig().getString("webhook.bearerToken");
+                    if (bearerToken != null && !bearerToken.isEmpty()) {
+                        conn.setRequestProperty("Authorization", "Bearer " + bearerToken);
+                    }
                     conn.setDoOutput(true);
-                    // 构造 JSON 负载，将 prize 参数一起提交（这里 prize 直接调用 toString()，建议根据实际情况使用 JSON 库生成合法 JSON）
-                    String prizeJson = item.prize().toString();
                     String jsonPayload = "{\"player\":\"" + player.getName() + "\","
                             + "\"item\":\"" + item.id() + "\","
                             + "\"price\":" + item.price() + ","
-                            + "\"prize\":" + prizeJson + "}";
+                            + "\"prize\":" + item.prize() + "}";
                     OutputStream os = conn.getOutputStream();
                     os.write(jsonPayload.getBytes(StandardCharsets.UTF_8));
                     os.flush();
                     os.close();
                     int responseCode = conn.getResponseCode();
-                    plugin.getLogger().info("Webhook sent, response code: " + responseCode);
+                    plugin.getLogger().info("Webhook sent, player=" + player + ", prize=" + item.prize() + ", response code: " + responseCode);
+                    if (responseCode == 200) {
+                        plugin.getLocaleManager().getMessage("messages.buySuccess").sendMessage(player);
+                    } else {
+                        player.sendMessage("The coin has been deducted but not submitted successfully, please contact support.");
+                    }
                 } catch (Exception e) {
-                    plugin.getLogger().severe("发送 webhook 失败: " + e.getMessage());
+                    plugin.getLogger().severe("send webhook failed: " + e.getMessage());
                 }
             }
         }.runTaskAsynchronously(plugin);

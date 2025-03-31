@@ -31,8 +31,7 @@ items:
       name: '<green>Diamond'
       lore:
         - '<gray>No permission'
-    commands: # Commands to execute when bought.
-      - 'give %player% diamond 1'
+    prize: 'example_prize'
     price: 10 # Price of the item.
     weight: 1.0 # The weight of the item. Higher weight = higher chance.
   '1':
@@ -41,8 +40,7 @@ items:
       name: '<green>Iron Ingot'
       lore:
         - '<gray>Costs $5'
-    commands:
-      - 'give %player% iron_ingot 1'
+    prize: 'example_prize'
     price: 5
     weight: 2.5
 
