@@ -50,7 +50,7 @@ filler-items: # These items are filler and not part of the shop.
   '0':
     slots:
       - 4
-    material: CLOCK
-    name: <green>%timeRemaining% # The only placeholder available is %timeRemaining%
+    material: BLACK_STAINED_GLASS_PANE
+    name: <gray>%timeRemaining% # The only placeholder available is %timeRemaining%
     commands:
-      - 'say Hello!'
+      - ''
