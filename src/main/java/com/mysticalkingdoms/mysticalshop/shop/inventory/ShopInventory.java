@@ -112,17 +112,19 @@ public class ShopInventory {
                     String jsonPayload = "{\"player\":\"" + player.getName() + "\","
                             + "\"item\":\"" + item.id() + "\","
                             + "\"price\":" + item.price() + ","
-                            + "\"prize\":" + item.prize() + "}";
+                            + "\"prize\":\"" + item.prize() + "\"}";
                     OutputStream os = conn.getOutputStream();
                     os.write(jsonPayload.getBytes(StandardCharsets.UTF_8));
                     os.flush();
                     os.close();
                     int responseCode = conn.getResponseCode();
-                    plugin.getLogger().info("Webhook sent, player=" + player + ", prize=" + item.prize() + ", response code: " + responseCode);
-                    if (responseCode == 200) {
+                    plugin.getLogger().info("Webhook sent, player=" + player.getName() + ", prize=" + item.prize() + ", response code: " + responseCode);
+                    if (responseCode == 200 || responseCode == 0) {
                         plugin.getLocaleManager().getMessage("messages.buySuccess").sendMessage(player);
                     } else {
                         player.sendMessage("The coin has been deducted but not submitted successfully, please contact support.");
+                        plugin.getLogger().info("raw: " + jsonPayload);
+                        plugin.getLogger().warning("message: " + conn.getResponseMessage());
                     }
                 } catch (Exception e) {
                     plugin.getLogger().severe("send webhook failed: " + e.getMessage());

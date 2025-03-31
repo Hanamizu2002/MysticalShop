@@ -6,7 +6,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Collections;
 
-public record ShopItem(String id, ItemStack availableItem, ItemStack boughtItem, String boughtPermission, ItemStack noPermissionItem, String requiredPermission, String prize, double price, double weight) {
+public record ShopItem(String id, ItemStack availableItem, ItemStack boughtItem, String boughtPermission, ItemStack noPermissionItem, String requiredPermission, String prize, int price, double weight) {
 
     public static ShopItem readItem(Section section) {
         ItemStack availableItem = ItemFactory.createItem(section.getSection("available-item"), Collections.emptyMap());
@@ -18,7 +18,7 @@ public record ShopItem(String id, ItemStack availableItem, ItemStack boughtItem,
         String requiredPermission = section.getString("required-permission");
 
         String prize = section.getString("prize");
-        double price = section.getDouble("price");
+        int price = section.getInt("price");
         double weight = section.getDouble("weight");
 
         return new ShopItem(section.getNameAsString(), availableItem, boughtItem, boughtPermission, noPermissionItem, requiredPermission, prize, price, weight);
